@@ -21,7 +21,7 @@ func _on_area_2d_input_event(viewport: Viewport, event: InputEvent, shape_idx: i
 		input_handled = true  # Mark event as handled
 		var x_num = rng_x()
 		var y_num = rng_y()
-		Game.increase_score(80)  # Call the global script to update the score
+		Game.increase_score(70)  # Call the global script to update the score
 		self.position = Vector2(x_num, y_num)
 		print("Primary Area2D clicked")
 
@@ -35,6 +35,20 @@ func _on_goodshot_area_input_event(viewport: Viewport, event: InputEvent, shape_
 		var x_num = rng_x()
 		var y_num = rng_y()
 		Game.increase_score(20)  # Call the global script to update the score
+		self.position = Vector2(x_num, y_num)
+		print("Goodshot Area2D clicked")
+
+		# Reset the flag after a small delay
+		await(get_tree().create_timer(0.1))
+		input_handled = false
+
+
+func _on_fairshot_area_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed and not input_handled:
+		input_handled = true  # Mark event as handled
+		var x_num = rng_x()
+		var y_num = rng_y()
+		Game.increase_score(10)  # Call the global script to update the score
 		self.position = Vector2(x_num, y_num)
 		print("Goodshot Area2D clicked")
 
