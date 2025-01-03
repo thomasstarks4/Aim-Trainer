@@ -1,0 +1,29 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Aim Trainer"
+run/main_scene="res://Levels/level1.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Game="*res://Global/game.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://Assets/plus-1727487_1280 (1) (1).png"
+
+[dotnet]
+
+project/assembly_name="Aim Trainer"
